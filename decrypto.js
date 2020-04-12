@@ -78,6 +78,25 @@ function setFullScreenIcon() {
     }
 }
 
+function toggleDarkMode() {
+	if (document.body.classList.contains('bg-dark')) {
+		document.body.classList.replace('bg-dark', 'bg-light');
+	} else {
+		document.body.classList.replace('bg-light', 'bg-dark');
+	}
+	setDarkModeButton();
+}
+
+function setDarkModeButton() {
+    if (document.body.classList.contains('bg-dark')) {
+		$('#lightMode').show();
+		$('#darkMode').hide();
+    } else {
+		$('#lightMode').hide();
+		$('#darkMode').show();
+    }
+}
+
 function startNewGame() {
 	setWords(newGame());
 }
@@ -107,6 +126,7 @@ function initScreenfull() {
 
 function initialize() {
 	initScreenfull();
+	setDarkModeButton();
 
 	wordList = loadWordList();
 	loadCode();
